@@ -20,7 +20,7 @@ def find_pages_you_might_like(user_id, data):
             
         for page in pages:
             if page not in user_liked_pages:
-                page_suggestion[page] = page_suggestion.get('get', 0) + len(shared_pages) 
+                page_suggestion[page] = page_suggestion.get(page, 0) + len(shared_pages) 
                 
     sorted_pages = sorted(page_suggestion.items(), key=lambda x: x[1], reverse=True)
     return [page_id for page_id, _ in sorted_pages]
